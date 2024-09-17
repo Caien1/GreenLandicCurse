@@ -15,7 +15,7 @@ This Discord bot project is built using `discord.js` and features a variety of c
    - **Functionality:** Fetches and displays game deals from an external API.
 
 2. **`/emre`**
-   - **Description:** An introduction.
+   - **Description:** A Rant.
    - **Response:** "Emre sucks at every game he plays."
 
 3. **`/hi`**
