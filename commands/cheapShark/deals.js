@@ -45,22 +45,43 @@ module.exports = {
 
            let data =await  getDeals(url);
 
-          // console.log(data[0])
+          console.log(data[0])
            if(data.length==0){
 
             await interaction.reply(`No such offer`);
 
            }
-            let min = Math.min(30,data.length)
+
+
+
+
+            let min = Math.min(10,data.length)
+
+            try{
             const message = data.slice(0,min).map(function(deal){
 
-                return `**Title:** ${deal.title}\n`+`*Price*:$${deal.salePrice}\n\n` 
+                return `**Title:** ${deal.title}\n`+`*Price*:$${deal.salePrice}\n`
               ;
 
             }).join("")
+        
+            await interaction.reply(`Total listing:${data.length}\n${message}`);}
+
+            
+            
+            catch(err){
+                await interaction.reply(`Some thing went wrong` + err);
+
+            }
+            finally{
+        
+            }
    
+
+
+
            // Send the first page
-           await interaction.reply(`Total listing:${data.length}\n${message}`);
+           
           // await interaction.reply(`test`);
                  
 

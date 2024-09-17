@@ -30,7 +30,9 @@ module.exports = {
         });
 
         if(connection){
-            return interaction.reply(`You joined ${voiceChannel.id}`)
+            return interaction.reply(`Bot  joined ${interaction.channel.name} on request of ${interaction.user.username
+                
+            }`)
         }
         else{
             return interaction.reply(`Failed!!`)
