@@ -54,7 +54,7 @@ module.exports = {
             let min = Math.min(30,data.length)
             const message = data.slice(0,min).map(function(deal){
 
-                return `**Title:** ${deal.title}\n`+`*Price*:${deal.salePrice}\n\n` 
+                return `**Title:** ${deal.title}\n`+`*Price*:$${deal.salePrice}\n\n` 
               ;
 
             }).join("")
