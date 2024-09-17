@@ -4,6 +4,19 @@ const path = require('node:path');
 const { Client, GatewayIntentBits,Collection } = require('discord.js');
 
 
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
+
+
 // Create a new client instance
 const client = new Client({ intents: [ GatewayIntentBits.Guilds,
 	GatewayIntentBits.GuildVoiceStates, // Required for voice channels

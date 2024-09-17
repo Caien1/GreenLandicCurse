@@ -26,6 +26,7 @@ module.exports = {
         async execute(interaction) {
 
            const maxPrice = interaction.options.getString('maxprice')
+           const startindex = interaction.options.getString('startindex')
             const url = `https://www.cheapshark.com/api/1.0/deals?upperPrice=${maxPrice}`
 
             async function getDeals(url) {
@@ -60,7 +61,7 @@ module.exports = {
             try{
             const message = data.slice(0,min).map(function(deal){
 
-                return `**Title:** ${deal.title}\n`+`*Price*:$${deal.salePrice}\n`
+                return `**Title:** ${deal.title}\n`+`*Price*:$${deal.salePrice}\n\n`
               ;
 
             }).join("")

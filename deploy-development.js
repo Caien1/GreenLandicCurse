@@ -6,6 +6,18 @@ const token = process.env.DISCORD_TOKEN;
 const clientId = process.env.ID;
 const guildId = process.env.SERVER;
 
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
+
 
 const commands = [];
 // Grab all the command folders from the commands directory you created earlier
@@ -38,7 +50,7 @@ const rest = new REST().setToken(token);
 
 		// The put method is used to fully refresh all commands in the guild with the current set
 		const data = await rest.put(
-			Routes.applicationGuildCommands(clientId, guildId),
+			Routes.applicationCommands(clientId),
 			{ body: commands },
 		);
 
