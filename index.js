@@ -10,8 +10,7 @@ const port = 3000
 
 app.get('/', (req, res) => {
  // res.send('Hello World!')
- res.sendFile('index.html', { root: path.join(__dirname, '../html') });
-})
+ res.sendFile(path.join(__dirname, '/index.html'));})
 
 
 
