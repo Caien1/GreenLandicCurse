@@ -10,13 +10,19 @@ const port = 3000
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
-})
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+ // res.sendFile('index.html', { root: path.join(__dirname, '../html') });
 })
 
 
+
+app.get('/test', (req, res) => {
+	res.send('OK 200')
+   // res.sendFile('index.html', { root: path.join(__dirname, '../html') });
+  })
+
+  app.listen(port, () => {
+	console.log(`Example app listening on port ${port}`)
+  })
 // Create a new client instance
 const client = new Client({ intents: [ GatewayIntentBits.Guilds,
 	GatewayIntentBits.GuildVoiceStates, // Required for voice channels
