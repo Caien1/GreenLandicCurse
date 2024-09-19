@@ -8,7 +8,7 @@ const PAGE_SIZE=7;
 module.exports = {
 
     data: new SlashCommandBuilder()
-        .setName('deals2')
+        .setName('deals')
         .setDescription('Lists games on sale')
         .addStringOption(option =>
             option.setName('maxprice')
@@ -48,7 +48,7 @@ module.exports = {
 
            let data =await  getDeals(url);
 
-          console.log(data[0])
+          //console.log(data[0])
            if(data.length==0){
 
             await interaction.reply(`No such offer`);
