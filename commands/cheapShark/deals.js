@@ -53,7 +53,7 @@ module.exports = {
             const embeds = data.map(function(deal){
                 return {name:`**Title:** ${deal.title}\n`,value:`*Price*:$${deal.salePrice}\n\n`}
             })
-            console.log(embeds)
+           // console.log(embeds)
         
             pagination.setTitle('Games on sale');
             
