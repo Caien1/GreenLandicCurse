@@ -14,21 +14,12 @@ module.exports = {
             option.setName('maxprice')
             .setDescription('Only returns deals with a price less than or equal to this value (50 acts the same as no limit)')
             .setRequired(true) 
-        )
-        .addStringOption(option =>
-            option.setName('startindex')
-            .setDescription('Navigate through listings')
-            .setRequired(false))
-
-            .addStringOption(option =>
-                option.setName('endindex')
-                .setDescription('Navigate through listings')
-                .setRequired(false)),
+        ),
 
         async execute(interaction) {
             const pagination = new Pagination(interaction);
            const maxPrice = interaction.options.getString('maxprice')
-           const startindex = interaction.options.getString('startindex')
+         //  const startindex = interaction.options.getString('startindex')
             const url = `https://www.cheapshark.com/api/1.0/deals?upperPrice=${maxPrice}`
 
             async function getDeals(url) {
@@ -84,8 +75,8 @@ module.exports = {
             //         value: 'Third'
             //     }
             // ]);
-           pagination.addFields(embeds);
-            pagination.paginateFields(true);
+        pagination.addFields(embeds);
+        pagination.paginateFields(true);
             // or if you want to set a common change in all embeds, you can do it by adding a cb.
             // pagination.setEmbeds(embeds, (embed, index, array) => {
             //     return embed.setFooter({ text: `Page: ${index + 1}/${array.length}` })
