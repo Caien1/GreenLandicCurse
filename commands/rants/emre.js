@@ -5,6 +5,6 @@ module.exports = {
 		.setName('emre')
 		.setDescription('Rant'),
 	async execute(interaction) {
-		await interaction.reply('Emre sucks at every game he plays' );
+		await interaction.reply('🇹🇷 Emre sucks at every game he plays 🇹🇷' );
 	},
 };
