@@ -54,8 +54,6 @@ module.exports = {
            }
 
 
-
-
             let min = Math.min(10,data.length)
 
             try{
@@ -83,7 +81,7 @@ module.exports = {
 
            // Send the first page
            
-          // await interaction.reply(`test`);
+          await interaction.reply(`test`);
                  
 
                  
