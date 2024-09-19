@@ -10,8 +10,7 @@ This Discord bot project is built using `discord.js` and features a variety of c
    - **Description:** Lists games on sale.
    - **Options:**
      - `maxprice` (required): Returns deals with a price less than or equal to this value.
-     - `startindex` (optional): Navigate through listings.
-     - `endindex` (optional): Navigate through listings.
+   
    - **Functionality:** Fetches and displays game deals from an external API.
 
 2. **`/emre`**
