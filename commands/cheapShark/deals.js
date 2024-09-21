@@ -39,7 +39,7 @@ module.exports = {
 
         let data = await getDeals(url);
 
-        console.log(data[0])
+      //  console.log(data[0])
         if (data.length == 0) {
 
             await interaction.reply(`No such offer`);
