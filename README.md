@@ -50,6 +50,8 @@ This Discord bot project is built using `discord.js` and features a variety of c
 2. **`ClientReady`**
    - **Description:** Logs a message when the bot is ready.
    - **Functionality:** Logs the bot's username and tag when the bot successfully connects to Discord.
+3. **`cheeser`**
+   - well this is hosted on renderer, figure out why it needs an web server on your own
 
 ### Command Deployment
 
@@ -69,4 +71,15 @@ The `deploy-commands.js` script is used to deploy and refresh the bot's slash co
    ```bash
    node deploy-commands.js
    node index.js
+   ```
+   
+**Adding your own commands to the bot**
+   - Clone the bot to your local machine
+     ```bash
+     git clone https://github.com/Caien1/GreenLandicCurse.git
+     ```
+   - Navigate to the `commands` folder there you have a choice to either make a new folder for commands you want to implement 
+     
+      
+
    
