@@ -1,25 +1,33 @@
 const { Events } = require('discord.js');
 
+// Replace these with your server and channel IDs
+const GUILD_ID = '1270520185392201791';
+const CHANNEL_ID = '1328894577683202082';
+
 module.exports = {
-	name: Events.InteractionCreate,
-	async execute(interaction) {
-		if (!interaction.isChatInputCommand()) return;
+	name: Events.VoiceStateUpdate,
+	async execute(oldState, newState) {
+		// Ignore bots
+		if (newState.member.user.bot) return;
 
-		const command = interaction.client.commands.get(interaction.commandName);
-
-		if (!command) {
-			console.error(`No command matching ${interaction.commandName} was found.`);
+		// Only enforce in the target guild + channel
+		if (
+			newState.guild.id !== GUILD_ID ||
+			newState.channelId !== CHANNEL_ID
+		) {
 			return;
 		}
 
-		try {
-			await command.execute(interaction);
-		} catch (error) {
-			console.error(error);
-			if (interaction.replied || interaction.deferred) {
-				await interaction.followUp({ content: 'There was an error while executing this command!', ephemeral: true });
-			} else {
-				await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+		// Check if video was toggled
+		if (oldState.selfVideo !== newState.selfVideo) {
+			if (!newState.selfVideo) {
+				try {
+					// Timeout for 1 minute (60_000 ms)
+					await newState.member.timeout(60_000, 'Camera not enabled');
+					console.log(`Timed out ${newState.member.user.tag} for not using camera.`);
+				} catch (error) {
+					console.error(`Failed to timeout ${newState.member.user.tag}:`, error);
+				}
 			}
 		}
 	},
